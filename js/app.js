@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 		var daytypes = {
 			clearDay: {
-				text: "Clear Day",
+				text: "clear day",
 				images: ["https://farm4.staticflickr.com/3040/2934688339_9e3c1c6750.jpg",
 						 "https://farm1.staticflickr.com/168/380900579_453b72de58.jpg",
 						 "https://farm9.staticflickr.com/8115/8617971763_a59ef515d3.jpg"
