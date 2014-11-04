@@ -21,7 +21,7 @@ $(document).ready(function(){
 	// Recieved a latitude/longitude from the browser
 	function success(position) {
 		console.log(position);
-		// getWeatherWithPos(position.coords.latitude,position.coords.longitude);
+		getWeatherWithPos(position.coords.latitude,position.coords.longitude);
 	}
 
 	// Unable to find a latitude/longitude
