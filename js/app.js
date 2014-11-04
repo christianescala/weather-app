@@ -161,14 +161,14 @@ $(document).ready(function(){
 			clearDay: {
 				text: "Clear Day",
 				images: ["https://farm4.staticflickr.com/3040/2934688339_9e3c1c6750.jpg",
-						"https://farm1.staticflickr.com/168/380900579_453b72de58.jpg",
-						"https://farm9.staticflickr.com/8115/8617971763_a59ef515d3.jpg"
+						 "https://farm1.staticflickr.com/168/380900579_453b72de58.jpg",
+						 "https://farm9.staticflickr.com/8115/8617971763_a59ef515d3.jpg"
 						]
 			},
 			clearNight: {
-				text: "clear nigth",
+				text: "clear night",
 				images: [
-						"http://farm6.staticflickr.com/5326/9089559758_ce0d6d385f.jpg",
+						"https://farm6.staticflickr.com/5326/9089559758_ce0d6d385f.jpg",
 						"https://farm6.staticflickr.com/5249/5337935521_c4d99f091f.jpg",
 						"https://farm8.staticflickr.com/7413/12180560686_164b3364e1.jpg"
 						]
@@ -228,7 +228,7 @@ $(document).ready(function(){
 			if(weather == "snow")
 				return daytypes.snow.text;
 
-			if(weather == "slet")
+			if(weather == "sleet")
 				return daytypes.sleet.text;
 
 			if(weather == "wind")
@@ -260,7 +260,7 @@ $(document).ready(function(){
 			if(day == "snow")
 				return daytypes.snow.images[Math.floor(Math.random()*daytypes.snow.images.length)];
 
-			if(day == "slet")
+			if(day == "sleet")
 				return daytypes.sleet.images[Math.floor(Math.random()*daytypes.sleet.images.length)];
 
 			if(day == "wind")
