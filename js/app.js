@@ -20,13 +20,13 @@ $(document).ready(function(){
 
 	// Recieved a latitude/longitude from the browser
 	function success(position) {
-		console.log(position);
+		// console.log(position);
 		getWeatherWithPos(position.coords.latitude,position.coords.longitude);
 	}
 
 	// Unable to find a latitude/longitude
 	function error(error) {
-		console.log(error);
+		// console.log(error);
 		getWeatherWithPos(defaultLat,defaultLng);
 	}
 
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	function getWeatherWithPos(lat,lng) {
 		// Construct the url to request
 		apiURL += "/" + lat + "," + lng;
-		console.log(apiURL);
+		// console.log(apiURL);
 
 		// Make a request to forecast.io
 		$.ajax({
@@ -54,7 +54,7 @@ $(document).ready(function(){
 			},
 			error: function (xhr, status) {
 				// The request failed
-		    	console.log(status);
+		    	// console.log(status);
 		    	$('#loader').remove();
 		    	showError();
 			}
@@ -68,6 +68,12 @@ $(document).ready(function(){
 	
 	
 	function parseWeather(data) {
+
+
+
+
+
+
 		var currentWeather = data.currently.icon;
 		var location = data.timezone;
 		var currentTemp = Math.floor(data.currently.temperature);
@@ -117,19 +123,19 @@ $(document).ready(function(){
 		var days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 		
 		var dailyTime = data.daily.data;
-		console.log(dailyTime);
+		// console.log(dailyTime);
 		var timeArray = [];
-		console.log(timeArray);
+		// console.log(timeArray);
 		
 		for (var i = 0; i < dailyTime.length; i++) {
 			timeArray.push(dailyTime[i].time*1000);	
 		}
 
-		console.log(timeArray);
+		// console.log(timeArray);
 
 		var dateArrayOne = new Date(timeArray[1]);
 		var dateFirst = days[dateArrayOne.getDay()];
-		console.log(dateFirst);
+		// console.log(dateFirst);
 		var dateArrayTwo = new Date(timeArray[2]);
 		var dateSecond = days[dateArrayTwo.getDay()];
 
@@ -170,84 +176,98 @@ $(document).ready(function(){
 				images: [
 						"https://farm6.staticflickr.com/5326/9089559758_ce0d6d385f.jpg",
 						"https://farm6.staticflickr.com/5249/5337935521_c4d99f091f.jpg",
-						"https://farm8.staticflickr.com/7413/12180560686_164b3364e1.jpg"
+						"https://farm8.staticflickr.com/7413/12180560686_164b3364e1.jpg",
+						"https://farm6.staticflickr.com/5534/11444282656_d40203997e_b.jpg"
 						]
 			},
 			rain: {
 				text: "rain",
-				images: ["https://farm4.staticflickr.com/3874/14806701421_f4c5382706.jpg"]
+				images: [
+						"https://farm4.staticflickr.com/3874/14806701421_f4c5382706.jpg",
+						"https://farm8.staticflickr.com/7261/7527668312_3eaed7b5ca_c.jpg"]
 			},
 			snow: {
 				text: "snow",
-				images: []
+				images: ["https://farm8.staticflickr.com/7047/6868810567_8df11d617d_b.jpg"]
 			},
 			sleet: {
 				text: "sleet",
-				images: []
+				images: ["https://farm8.staticflickr.com/7047/6868810567_8df11d617d_b.jpg"]
 			},
 			wind: {
 				text: "wind",
-				images: []
+				images: ["https://farm6.staticflickr.com/5607/15345467969_50a174f1b9_b.jpg"]
 			},
 			fog: {
 				text: "fog",
-				images: []
+				images: ["https://farm8.staticflickr.com/7346/9415714887_8e664978af_b.jpg"]
 			},
 			cloudy: {
 				text: "cloudy",
-				images: []
+				images: [
+						"https://farm3.staticflickr.com/2874/8824782386_deedf191a0_b.jpg",
+						"https://farm5.staticflickr.com/4059/4710495277_5acc3260df_b.jpg",
+						"https://farm4.staticflickr.com/3890/14620757084_63fec30a3e_b.jpg"
+						]
 			},
 			partlyCloudyDay: {
 				text: "partly cloudy day",
-				images: []
+				images: ["https://farm6.staticflickr.com/5498/10631423694_a296e9b366_b.jpg"
+						]
 			},
 			partlyCloudyNight: {
 				text: "partly cloudy night",
-				images: []
+				images: [
+						"https://farm8.staticflickr.com/7162/6770941985_0cc0e32efa_b.jpg",
+						"https://farm6.staticflickr.com/5534/11444282656_d40203997e_b.jpg",
+						"https://farm6.staticflickr.com/5326/9089559758_ce0d6d385f.jpg",
+						"https://farm6.staticflickr.com/5249/5337935521_c4d99f091f.jpg",
+						"https://farm8.staticflickr.com/7413/12180560686_164b3364e1.jpg"
+						]
 			}	
 		};
-// daytypes.clearDay.text;
-// daytypes.clearDay.images;
-		
-		var dayType = getIcon(data.currently.icon);
-		$('body').css('background-image','url(' + dayType + ')');
 
-		var dayTypeText = getIconText(data.currently.icon);
-		$('#condition').text(dayTypeText);
 
 		function getIconText (weather){
-			if(weather == "clear-day")
+
+
+
+			if(weather === "clear-day")
 				return daytypes.clearDay.text;
 
-			if(weather == "clear-night")
+			if(weather === "clear-night")
 				return daytypes.clearNight.text;
 
-			if(weather == "rain")
+			if(weather === "rain")
 				return daytypes.rain.text;
 
-			if(weather == "snow")
+			if(weather === "snow")
 				return daytypes.snow.text;
 
-			if(weather == "sleet")
+			if(weather === "sleet")
 				return daytypes.sleet.text;
 
-			if(weather == "wind")
+			if(weather === "wind")
 				return daytypes.wind.text;
 
-			if(weather == "fog")
+			if(weather === "fog")
 				return daytypes.fog.text;
 
-			if(weather == "cloudy")
+			if(weather === "cloudy")
 				return daytypes.cloudy.text;
 
-			if(weather == "partlyCloudyDay")
+			if(weather === "partly-cloudy-day")
 				return daytypes.partlyCloudyDay.text;
 
-			if(weather == "partlyCloudyNight")
+			if(weather === "partly-cloudy-night")
 				return daytypes.partlyCloudyNight.text;
 		}
 
 		function getIcon (day){
+
+
+
+			
 			if(day == "clear-day")
 				return daytypes.clearDay.images[Math.floor(Math.random()*daytypes.clearDay.images.length)];
 
@@ -272,17 +292,33 @@ $(document).ready(function(){
 			if(day == "cloudy")
 				return daytypes.cloudy.images[Math.floor(Math.random()*daytypes.cloudy.images.length)];
 
-			if(day == "partlyCloudyDay")
+			if(day == "partly-cloudy-day")
 				return daytypes.partlyCloudyDay.images[Math.floor(Math.random()*daytypes.partlyCloudyDay.images.length)];
 
-			if(day == "partlyCloudyNight")
+			if(day == "partly-cloudy-night")
 				return daytypes.partlyCloudyNight.images[Math.floor(Math.random()*daytypes.partlyCloudyNight.images.length)];
 
-
 		}
+	
 
+// daytypes.clearDay.text;
+// daytypes.clearDay.images;
 
+var dayTypeText = getIconText(data.currently.icon);
+		$('#condition').text(dayTypeText);
+
+		var dayType = getIcon(data.currently.icon);
+		$('body').css('background-image','url(' + dayType + ')');
+		console.log(dayType);
+
+	
 	}
+
+
+
+
+
+	
 
 	// Show an error if we can't access the weather
 	function showError(){
