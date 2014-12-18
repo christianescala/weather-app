@@ -1,45 +1,120 @@
 			body{
 				font-family: sans-serif; 
 				font-size: 15px;
-				background: url('../images/Catinrain.jpg') no-repeat center fixed;
+				font-weight: 100;
+				background: no-repeat center fixed;
 				-webkit-background-size: cover;
 				-moz-background-size: cover;
 				-o-background-size: cover;
 				background-size: cover;
 			}
+			#loader{
+				text-align: center;
+				margin-top: 200px;
+			}
+
 			.weatherInfo{
 				width:100%;
 				color: #fff;
-				background: rgba(0,0,0,.6);
+				/* background: rgba(0,0,0,.1); */
 				position: fixed;
-				top: 0px;
+				bottom: 0px;
 				left: 0px;
-				padding: 10px;
+				padding: 10px 0px 0px 10px;
 			}
 			#currentLoc{
 				font-size: 26px;
 			}
+
+			.owl-theme{
+				display: none;
+			}
+
+			/* font size acting weird */
+
+			/*.section1{
+				font-size: 15px;
+			}*/
+
 			.section2{
 				font-size: 80px;
+				margin-top: -12px;
 			}
 			.section3{
-				top: 100px; 
+				bottom: 15px; 
 				left: 135px;
 				position: fixed;
 				font-size: 15px;
 			}			
 			.nextDays{
 				width:100%;
-				color: #fff;
-				background: rgba(0,0,0,.6);
-				position: fixed;
-				bottom: 0px;
-				left: 0px;
-				padding: 10px;
+				color: #ffffff;
 				text-align: center;
-				font-size: 12px;
+				font-size: 15px;
+				display: none;
+				padding: 20px 0;
+				border-top: #fff solid 1px;
+
+
+				/* margin only affects left and right. it's sticked to the right
+				IT WILL CORRECT IF NOT FIXED*/
+				/*margin: 5px;*/
 			}
+
 			.daysBox{
-				width: 14.28571%;
-				float: left;
+				width: 100%;
+				padding: 6px 0 6px 0;
+			}
+			.temp:after{
+				content:"\00b0";
+
+			}
+			.slash:before{
+				content:"\002F";
+			}
+			.days, .dayTemp, .dayCondition{
+				display: inline-block;
+				width: 25%;
+
+			}
+			.hour{
+				display: none;
+
+			}
+
+			/* Landscape Orientation Layout */
+			@media screen and (orientation:landscape){
+			.moreInfo{
+				background: rgba(0,0,0,.6);
+				top: 5px;
+				bottom:5px;
+				left:5px;
+				right:5px;
+				position: absolute;
+			}
+			.nextDays{
+				display: block;
+			}
+			.hours{
+				display: block;
+				width:100%;
+				color: #ffffff;
+				/*position: fixed;
+				/*bottom:0;*/
+				text-align: center;
+				font-size: 15px;
+				padding: 20px 0 0 0;
+			}
+			.hour{
+				display: inline-block;
+				text-align: center;
+
+			}
+			.weatherInfo{
+				display: none;
+			}
+			.owl-item{
+				width:150px;
+			}
+			
 			}
